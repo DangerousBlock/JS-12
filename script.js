@@ -108,3 +108,35 @@ console.log(calculateTotalPrice(products,'banana'));
 console.log(calculateTotalPrice(products,'juice'));
 console.log(calculateTotalPrice(products,'sweets'));
 console.log(calculateTotalPrice(products,'coockies'));
+
+// Task 7
+
+const account = {
+    money:1000,
+    transactions:[],
+    deposit(amount){
+        this.money += amount;
+        console.log(`На рахунок зачислено - $${amount}, теперішня сума - $${this.money}`);
+        this.transactions.push(`deposit - ${amount}`);
+    },
+    withdraw(amount){
+        this.money -= amount;
+        console.log(`З рахунку вирахувано - $${amount}, теперішня сума - $${this.money}`);
+        this.transactions.push(`withdraw - ${amount}`);
+    },
+    transactionsStory(){
+        console.log("Історія транзакцій")
+        console.log(this.transactions);
+    }
+};
+account.withdraw(100);
+account.withdraw(200);
+account.withdraw(300);
+account.withdraw(400);
+account.withdraw(500);
+account.deposit(100);
+account.deposit(200);
+account.deposit(300);
+account.deposit(400);
+account.deposit(500);
+account.transactionsStory();
